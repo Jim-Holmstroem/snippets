@@ -45,9 +45,11 @@ snippet property
 		def fset(self, value):
 			${4:self._$1 = value}
 # Lambda
+snippet lda
+	${1:f} = lambda ${2:args}: ${3:}
 snippet ld
-	${1:var} = lambda ${2:vars} : ${3:action}
-snippet .
+	lambda ${1:args}: ${2:}
+snippet s.
 	self.
 snippet try Try/Except
 	try:
@@ -84,3 +86,36 @@ snippet ifmain
 # __magic__
 snippet _
 	__${1:init}__${2}
+
+snippet from
+	from ${1:module} import ${2:thing}
+snippet fromf
+	from __future__ import print_function, division, with_statement
+
+snippet (
+	${1:}(${2:})
+snippet (d
+	${1:}(
+		${2:}
+	)
+
+# higher order functions
+snippet mapp
+	def ${1:}(${2:})
+	    ${4:}
+
+	map(
+	    $1,
+	    ${3:}.
+	)
+
+snippet deco
+	def ${1:}(${2:f})
+	    @wraps($2)
+	    def _$1(${3:*args, **kwargs}):
+
+		return_value = $2($3)
+
+		return return_value
+
+	    return _$1
